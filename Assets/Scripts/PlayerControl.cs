@@ -33,10 +33,20 @@ public class PlayerControl : MonoBehaviour
     {
         if(playerRigidbody.velocity.y == 0)
         {
-
+            HeldTime = TimeOfRelease - TimeOfPress;
             playerRigidbody.velocity = Vector3.up * JumpForce * HeldTime;
         }
     }
 
+    
+    public void JumpPressed()
+    {
+        TimeOfPress = Time.time;
+    }
+
+    public void JumpReleased()
+    {
+        TimeOfRelease = Time.time;
+    }
 
 }
