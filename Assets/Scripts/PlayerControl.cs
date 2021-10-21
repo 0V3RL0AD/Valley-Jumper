@@ -7,6 +7,11 @@ public class PlayerControl : MonoBehaviour
     public float MoveSpeed;
     public float JumpForce;
 
+    public float TimeOfPress;
+    public float TimeOfRelease;
+
+    private float HeldTime;
+
     private Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
@@ -28,7 +33,8 @@ public class PlayerControl : MonoBehaviour
     {
         if(playerRigidbody.velocity.y == 0)
         {
-            playerRigidbody.velocity = Vector3.up * JumpForce;
+
+            playerRigidbody.velocity = Vector3.up * JumpForce * HeldTime;
         }
     }
 
