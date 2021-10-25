@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     public float TimeOfRelease;
 
     private float HeldTime;
+    private float HeldJumpForce;
 
     private Rigidbody playerRigidbody;
 
@@ -34,7 +36,20 @@ public class PlayerControl : MonoBehaviour
         if(playerRigidbody.velocity.y == 0)
         {
             HeldTime = TimeOfRelease - TimeOfPress;
-            playerRigidbody.velocity = Vector3.up * JumpForce * HeldTime;
+
+            if (HeldTime < 0.5)
+            {
+                HeldJumpForce = 0.5f;
+            }
+            else if(HeldTime > 1.5)
+            {
+                HeldJumpForce = 1.5f;
+            }
+            else
+            {
+                HeldJumpForce = HeldTime;
+            }
+            playerRigidbody.velocity = Vector3.up * JumpForce * HeldJumpForce;
         }
     }
 
