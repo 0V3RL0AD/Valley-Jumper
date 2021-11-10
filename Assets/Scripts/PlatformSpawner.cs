@@ -23,7 +23,7 @@ public class PlatformSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider Col)
     {
-        if(Col.gameObject.name == "Male_01_V02")
+        if(Col.gameObject.name == "Player")
         {
             PickPrefab = Random.Range(0, Platforms.Length);
 

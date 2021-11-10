@@ -2290,7 +2290,7 @@ GameObject:
   - component: {fileID: 919132149301945660}
   - component: {fileID: 919132149301945662}
   m_Layer: 0
-  m_Name: Male_01_V02
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
