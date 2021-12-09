@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlatformSpawner : MonoBehaviour
 {
-    public GameObject[] Platforms;
+    private GameObject Player;
+    public GameObject SpawnPoint;
+    public GameObject[] AllPlatforms;
+    public GameObject[] UpPlatforms;
 
     private int PickPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -23,11 +26,17 @@ public class PlatformSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider Col)
     {
-        if(Col.gameObject.name == "Player")
+        if (Col.gameObject.name == "Player" && Player.transform.position.y > 10)
         {
-            PickPrefab = Random.Range(0, Platforms.Length);
+            PickPrefab = Random.Range(0, AllPlatforms.Length);
 
-            Instantiate(Platforms[PickPrefab], new Vector3(transform.position.x + 21, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(AllPlatforms[PickPrefab], new Vector3(SpawnPoint.transform.position.x + 10, SpawnPoint.transform.position.y, SpawnPoint.transform.position.z), Quaternion.identity);
+        }
+        if (Col.gameObject.name == "Player" && Player.transform.position.y <= 10)
+        {
+            PickPrefab = Random.Range(0, UpPlatforms.Length);
+
+            Instantiate(UpPlatforms[PickPrefab], new Vector3(SpawnPoint.transform.position.x + 10, SpawnPoint.transform.position.y, SpawnPoint.transform.position.z), Quaternion.identity);
         }
     }
 }

@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
     public int newterraintrigger = 500;
     public GameObject Terrain;
 
+    public GameObject GroundSensor;
     public bool isGrounded;
 
     public float MoveSpeed;
@@ -70,7 +71,7 @@ public class PlayerControl : MonoBehaviour
 
     public void jumpButton()
     {
-        if(playerRigidbody.velocity.y == 0)
+        if(isGrounded == true)
         {
             HeldTime = TimeOfRelease - TimeOfPress;
 
@@ -78,9 +79,9 @@ public class PlayerControl : MonoBehaviour
             {
                 HeldJumpForce = 0.5f;
             }
-            else if(HeldTime > 1.5)
+            else if(HeldTime > 1.25)
             {
-                HeldJumpForce = 1.5f;
+                HeldJumpForce = 1.25f;
             }
             else
             {
@@ -109,6 +110,23 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay(Collider ground)
+    {
+        if (ground.gameObject.tag == "Platform")
+        {
+            isGrounded = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider ground)
+    {
+        if (ground.gameObject.tag == "Platform")
+        {
+            isGrounded = false;
+        }
+    }
+
+
     public void OnCollisionExit(Collision ground)
     {
         if (ground.gameObject.tag == "Platform")
@@ -116,5 +134,9 @@ public class PlayerControl : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
+
+
 
 }
