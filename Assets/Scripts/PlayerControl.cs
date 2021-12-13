@@ -20,6 +20,13 @@ public class PlayerControl : MonoBehaviour
     public float TimeOfPress;
     public float TimeOfRelease;
 
+    private int lives;
+    private static int TotalCoins;
+    private int CoinsThisRun;
+    private int ScoreThisRun;
+
+    private float DistancePoint;
+
     private float HeldTime;
     private float HeldJumpForce;
 
@@ -34,7 +41,9 @@ public class PlayerControl : MonoBehaviour
 
         isGrounded = true;
 
-
+        lives = 1;
+        CoinsThisRun = 0;
+        ScoreThisRun = 0;
     }
 
     // Update is called once per frame
@@ -53,11 +62,6 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("Grounded", isGrounded);
         }
 
-        
-        if ((playerRigidbody.velocity.y <= -30) && (isGrounded == false))
-        {
-            SceneManager.LoadScene("Main Scene");
-        }
 
         if (Mathf.RoundToInt(transform.position.x) == newterraintrigger)
         {
@@ -65,8 +69,23 @@ public class PlayerControl : MonoBehaviour
             newterraintrigger += 1000;
         }
 
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene("Main Scene");
+        }
 
 
+
+        if ((TotalCoins == 100) && (lives <= 2))
+        {
+            TotalCoins = TotalCoins - 100;
+
+        }
+
+        if (transform.position.x % 50 == 0)
+        {
+            ScoreThisRun++;
+        }
     }
 
     public void jumpButton()
@@ -90,7 +109,6 @@ public class PlayerControl : MonoBehaviour
             playerRigidbody.velocity = Vector3.up * JumpForce * HeldJumpForce;
         }
     }
-
     
     public void JumpPressed()
     {
@@ -102,34 +120,41 @@ public class PlayerControl : MonoBehaviour
         TimeOfRelease = Time.time;
     }
     
-    public void OnCollisionEnter(Collision ground)
+    public void OnCollisionEnter(Collision col)
     {
-        if (ground.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform")
+        {
+            isGrounded = true;
+        }
+
+        if (col.gameObject.tag == "Coin")
+        {
+            CoinsThisRun++;
+            ScoreThisRun++;
+            TotalCoins++;
+        }
+    }
+
+    public void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Platform")
         {
             isGrounded = true;
         }
     }
 
-    public void OnTriggerStay(Collider ground)
+    public void OnTriggerExit(Collider col)
     {
-        if (ground.gameObject.tag == "Platform")
-        {
-            isGrounded = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider ground)
-    {
-        if (ground.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform")
         {
             isGrounded = false;
         }
     }
 
 
-    public void OnCollisionExit(Collision ground)
+    public void OnCollisionExit(Collision col)
     {
-        if (ground.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform")
         {
             isGrounded = false;
         }
