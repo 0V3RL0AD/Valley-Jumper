@@ -23,7 +23,7 @@ public class PlatformSpawner : MonoBehaviour
         
     }
 
-
+    //Depending on if the players current y level is above or below 10, either only spawn upwards platforms, or any platforms
     private void OnTriggerEnter(Collider Col)
     {
         if (Col.gameObject.name == "Player" && Player.transform.position.y > 10)

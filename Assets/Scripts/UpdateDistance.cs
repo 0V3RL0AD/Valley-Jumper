@@ -13,7 +13,8 @@ public class UpdateDistance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DistanceText.text = Mathf.RoundToInt(Player.transform.position.x) + " m";
+        //Update the distance text in the hud to match the players current x value, offset by 5 for make up for player starting at -5 x
+        DistanceText.text = (Mathf.RoundToInt(Player.transform.position.x) + 5) + " m";
     }
 
 }

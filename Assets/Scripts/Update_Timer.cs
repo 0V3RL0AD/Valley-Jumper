@@ -16,6 +16,7 @@ public class Update_Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimerText.text = Time.timeSinceLevelLoad.ToString("F0");
+        //Update the Timer text on hud to match the current time that the scene has been loaded for
+        TimerText.text = Time.timeSinceLevelLoad.ToString("F0") + " Secs";
     }
 }
