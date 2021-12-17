@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
 
         isGrounded = true;
 
-        lives = 1;
+        lives = 2;
         CoinsThisRun = 0;
         ScoreThisRun = 0;
     }
@@ -60,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         LivesText.text = lives.ToString();
 
         //update score value
-        ScoreThisRun = (Mathf.RoundToInt(transform.position.x) + 5) + CoinsThisRun;
+        ScoreThisRun = (Mathf.RoundToInt(transform.position.x) + 5) + (CoinsThisRun*100);
 
         //Player continuous movement in positive X direction
         playerRigidbody.velocity = new Vector3(MoveSpeed, playerRigidbody.velocity.y, playerRigidbody.velocity.z);
