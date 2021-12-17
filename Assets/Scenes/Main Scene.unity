@@ -3987,6 +3987,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6664390183213580174, guid: badb70588d1dd3f41b3749a471890f28, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 677b29aae989294448f4d8fd7c14c637, type: 2}
     - target: {fileID: 7017327527886365000, guid: badb70588d1dd3f41b3749a471890f28, type: 3}
       propertyPath: m_Name
       value: Spawn Platform
