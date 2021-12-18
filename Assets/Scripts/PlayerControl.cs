@@ -21,7 +21,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject GroundSensor;
     public bool isGrounded;
 
-    public float MoveSpeed;
+    public float MoveSpeedBase;
+    public float MoveSpeedLim;
+    public float CMoveSpeed;
     public float JumpForce;
 
     public float TimeOfPress;
@@ -40,6 +42,10 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MoveSpeedBase = 6;
+        MoveSpeedLim = 10;
+
+        CMoveSpeed = MoveSpeedBase;
 
         anim = GetComponent<Animator>();
 
@@ -50,6 +56,9 @@ public class PlayerControl : MonoBehaviour
         lives = 2;
         CoinsThisRun = 0;
         ScoreThisRun = 0;
+
+        InvokeRepeating("RunFaster", 25f, 25f);
+
     }
 
     // Update is called once per frame
@@ -63,7 +72,7 @@ public class PlayerControl : MonoBehaviour
         ScoreThisRun = (Mathf.RoundToInt(transform.position.x) + 5) + (CoinsThisRun*100);
 
         //Player continuous movement in positive X direction
-        playerRigidbody.velocity = new Vector3(MoveSpeed, playerRigidbody.velocity.y, playerRigidbody.velocity.z);
+        playerRigidbody.velocity = new Vector3(CMoveSpeed, playerRigidbody.velocity.y, playerRigidbody.velocity.z);
 
         CurrentPlatforms = GameObject.FindGameObjectsWithTag("Platform");
         
@@ -84,16 +93,30 @@ public class PlayerControl : MonoBehaviour
             newterraintrigger += 1000;
         }
 
-        //If the player has 50 or more coins and under 3 lives, then give the player an extra life and take 50 coins
+        //If the player has 10 or more coins and under 3 lives, then give the player an extra life and take 10 coins
         if ((CCoins >= 10) && (lives <= 2))
         {
             lives++;
             CCoins = CCoins - 10;
         }
 
-        
-
     }
+
+    public void RunFaster()
+    {
+        if (CMoveSpeed < MoveSpeedLim)
+        {
+            CMoveSpeed = CMoveSpeed + 0.5f;
+        }
+        else if (CMoveSpeed >= MoveSpeedLim)
+        {
+            CMoveSpeed = CMoveSpeed;
+        }
+        
+    }
+
+
+
 
     //code for variable jump height, based on duration of button press
     public void jumpButton()
