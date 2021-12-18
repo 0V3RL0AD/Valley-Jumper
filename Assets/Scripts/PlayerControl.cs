@@ -80,7 +80,7 @@ public class PlayerControl : MonoBehaviour
         //when the players x pos reaches the same x pos as the terrain trigger, then create a new terrain and move the trigger 1000+ x
         if (Mathf.RoundToInt(transform.position.x) == newterraintrigger)
         {
-            Instantiate(Terrain, new Vector3(transform.position.x + 500, 0, 0), Quaternion.identity);
+            Instantiate(Terrain, new Vector3(transform.position.x + 500, -50, 0), Quaternion.identity);
             newterraintrigger += 1000;
         }
 
