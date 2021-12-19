@@ -42,6 +42,8 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         MoveSpeedBase = 6;
         MoveSpeedLim = 10;
 
