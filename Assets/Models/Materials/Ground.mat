@@ -8,16 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     OptimizedShaderFolder: dirt01 1
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -27,6 +26,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _2nd_ShadeMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -103,6 +106,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DecalTexture3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -238,6 +245,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -247,6 +258,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MirrorTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -283,6 +298,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxInternalMapMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -402,6 +421,7 @@ Material:
     - DSGI: 0
     - Instancing: 0
     - LightmapFlags: 0
+    - PixelSnap: 0
     - _1st2nd_Shades_Feather: 0.0001
     - _1stShadeMapMask_Inverse: 0
     - _1st_ShadeMapUV: 0
@@ -683,6 +703,7 @@ Material:
     - _EnableEmissionCenterOutAudioLink: 0
     - _EnableEmissionStrengthAudioLink: 0
     - _EnableEnvironmentalRim: 0
+    - _EnableExternalAlpha: 0
     - _EnableFlipbook: 0
     - _EnableGITDEmission: 0
     - _EnableGITDEmission1: 0
@@ -754,6 +775,9 @@ Material:
     - _GlitterSpeed: 10
     - _GlitterTextureRotation: 0
     - _GlitterUseSurfaceColor: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.19
+    - _GlossyReflections: 1
     - _IgnoreFog: 0
     - _Inverse_Clipping: 0
     - _InvertSmoothness: 0
@@ -791,7 +815,7 @@ Material:
     - _LightingUncapped: 0
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
-    - _LineWidth: 1.1
+    - _LineWidth: 20
     - _LockTooltip: 0
     - _MainAlphaToCoverage: 0
     - _MainBrightness: 0
@@ -841,7 +865,7 @@ Material:
     - _MatcapMultiply: 0
     - _MatcapNormal: 1
     - _MatcapReplace: 1
-    - _Metallic: 0
+    - _Metallic: 1
     - _MetallicMaskUV: 0
     - _MetallicTintMapUV: 0
     - _Mirror: 0
@@ -849,11 +873,12 @@ Material:
     - _Mode: 0
     - _ModelAngleMax: 90
     - _ModelAngleMin: 45
+    - _OcclusionStrength: 1
     - _OffsetFactor: 0
     - _OffsetUnits: 0
     - _OutlineCull: 1
     - _OutlineEmission: 0
-    - _OutlineFixedSize: 1
+    - _OutlineFixedSize: 0
     - _OutlineHueOffset: 0
     - _OutlineHueOffsetSpeed: 0
     - _OutlineHueShift: 0
@@ -884,6 +909,7 @@ Material:
     - _PanoInfiniteStereoToggle: 0
     - _PanoMaskUV: 0
     - _PanoToggle: 0
+    - _Parallax: 0.02
     - _ParallaxBias: 0.42
     - _ParallaxHeightMapEnabled: 0
     - _ParallaxHeightMapMaskUV: 0
@@ -964,6 +990,7 @@ Material:
     - _SmoothnessFrom: 1
     - _SmoothnessFrom1: 1
     - _SmoothnessMaskUV: 0
+    - _SmoothnessTextureChannel: 1
     - _Spec1Offset: 0
     - _Spec1Offset1: 0
     - _Spec2Smoothness: 0
@@ -981,6 +1008,7 @@ Material:
     - _SpecularAnisoJitterMicroUV: 0
     - _SpecularAnisoJitterMirrored: 0
     - _SpecularAnisoJitterMirrored1: 0
+    - _SpecularHighlights: 1
     - _SpecularInvertSmoothness: 0
     - _SpecularInvertSmoothness1: 0
     - _SpecularLMOcclusion: 0
@@ -1028,6 +1056,7 @@ Material:
     - _TextTimeEnabled: 0
     - _TextTimeRotation: 0
     - _TextTimeUV: 0
+    - _UVSec: 0
     - _Use_1stAs2nd: 0
     - _Use_1stShadeMapAlpha_As_ShadowMask: 0
     - _Use_2ndShadeMapAlpha_As_ShadowMask: 0
@@ -1373,6 +1402,7 @@ Material:
     - _EmissionMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _EmissiveScroll_Direction: {r: 0, g: -10, b: 0, a: 0}
     - _EmissiveScroll_Direction1: {r: 0, g: -10, b: 0, a: 0}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FlipbookColor: {r: 1, g: 1, b: 1, a: 1}
     - _FlipbookCrossfadeRange: {r: 0.75, g: 1, b: 0, a: 1}
     - _FlipbookMaskPan: {r: 0, g: 0, b: 0, a: 0}
@@ -1437,6 +1467,7 @@ Material:
     - _RGBMaskPanning: {r: 0, g: 0, b: 0, a: 0}
     - _RGBRedPanning: {r: 0, g: 0, b: 0, a: 0}
     - _RedColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _RgbNormalAPan: {r: 0, g: 0, b: 0, a: 0}
     - _RgbNormalBPan: {r: 0, g: 0, b: 0, a: 0}
     - _RgbNormalGPan: {r: 0, g: 0, b: 0, a: 0}

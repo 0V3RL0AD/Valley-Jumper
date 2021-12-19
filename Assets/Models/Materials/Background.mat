@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Background
-  m_Shader: {fileID: 4800000, guid: 917b37092bae034459c28c00a3a19b54, type: 3}
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: VIGNETTE_MASKED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -807,7 +807,7 @@ Material:
     - _LightingUncapped: 0
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
-    - _LineWidth: 0.4
+    - _LineWidth: 100
     - _LockTooltip: 0
     - _MainAlphaToCoverage: 0
     - _MainBrightness: 0
@@ -870,11 +870,11 @@ Material:
     - _OffsetUnits: 0
     - _OutlineCull: 1
     - _OutlineEmission: 0
-    - _OutlineFixedSize: 1
+    - _OutlineFixedSize: 0
     - _OutlineHueOffset: 0
     - _OutlineHueOffsetSpeed: 0
     - _OutlineHueShift: 0
-    - _OutlineLit: 1
+    - _OutlineLit: 0
     - _OutlineMaskUV: 0
     - _OutlineMode: 0
     - _OutlineOffsetFactor: 0
@@ -1179,7 +1179,7 @@ Material:
     - m_end_subsurface: 0
     - m_end_vertexManipulation: 0
     - m_end_voronoiRandom: 0
-    - m_lightingOptions: 1
+    - m_lightingOptions: 0
     - m_mainOptions: 0
     - m_outlineOptions: 1
     - m_renderingOptions: 0
@@ -1348,7 +1348,7 @@ Material:
     - _BumpMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClearcoatMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _ClippingMaskPan: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.014150928, b: 0.14150941, a: 1}
+    - _Color: {r: 0, g: 0.01362684, b: 0.122641504, a: 1}
     - _DecalColor: {r: 1, g: 1, b: 1, a: 1}
     - _DecalColor1: {r: 1, g: 1, b: 1, a: 1}
     - _DecalColor2: {r: 1, g: 1, b: 1, a: 1}
